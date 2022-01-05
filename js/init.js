@@ -115,80 +115,28 @@ var displayCity = function (citydata, searchTerm) {
   // create a link for each historical site
   var cityLstEl = document.createElement("ul");
 
-  // console.log(citydata.features);
-  // citydata.features.sort((a, b) => parseInt(b.properties.rate) - parseInt(a.properties.rate));
-  // console.log(citydata.features);
-
-
   for (i = 0; i < citydata.features.length; i++) {
     var historic_places = citydata.features[i].properties.name; 
     var cityLst = document.createElement("li");
-    //cityLst.innerHTML = getCityHistory[i];
-    //cityLst.setAttribute("data-city", historic_places);
-    //cityLst.classList = "li";
+
     cityLst.textContent = historic_places;
     cityLstEl.appendChild(cityLst);
   
   }
- 
  cityContainer.appendChild(cityLstEl);
-
-
-  //var uv_Index = citydata.uvi; //still searching to find the UV index
-
-
-  //weatherEl.classList = "list-item flex-row justify-space-between align-center";
-
-//   var cityNameEl = document.querySelector("#city-container h2");
-//   cityNameEl.textContent = searchTerm;
-//   var temperatureEl = document.querySelector(
-//     "#city-container .temperature span"
-//   );
-//   temperatureEl.textContent = Temp;
-
-//   var windEl = document.querySelector("#city-container .wind span");
-//   windEl.textContent = wind_speed;
-
-//   var humidityEl = document.querySelector("#city-container .humidity span");
-//   humidityEl.textContent = humidity;
-
-//   var uviEl = document.querySelector("#city-container .uvi span");
-//   uviEl.textContent = uvi;
-//   //WORK ON THE UVI INDICATOR
-//   var uviBox = document.querySelector("#uviBox");
-
-//   if (parseInt(uvi) < 3) {
-//     uviBox.classList = "good";
-//     //cityButtonsEl.appendChild(uviBox);
-//   }
-//   if (parseInt(uvi) == 3) {
-//     uviBox.classList = "okay";
-//   }
-
-//   if (parseInt(uvi) > 3) {
-//     uviBox.classList = "bad";
-//   }
-
-//   // append container to the dom
-//   cityContainerEl.appendChild(weatherEl);
-//   /* // create a status element
-//     var statusEl = document.createElement("span");
-//     statusEl.classList = "flex-row align-center";
-
-//     // check if current repo has issues or not
-//     if (repos[i].open_issues_count > 0) {
-//       statusEl.innerHTML =
-//         "<i class='fas fa-times status-icon icon-danger'></i>" + repos[i].open_issues_count + " issue(s)";
-//     } else {
-//       statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
-//     } */
-
-//   //MB attempt at displaying 5 day forecast
-
-//   // create variables for temperature
-
-  
+ 
 };
+
+
+// var $el1;
+// var $el2;
+
+// setInterval(function() {
+//  		$el1 = $('.bg-container.active');
+//     $el2 = $('.bg-container:not(.active');
+//     $el1.removeClass('active');
+//     $el2.addClass('active');
+//   }, 2000);
 
 // add event listeners to form and button container
 cityFormEl.addEventListener("submit", formSubmitHandler);
