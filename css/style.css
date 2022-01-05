@@ -106,11 +106,11 @@ animation-timing-function: ease-in-out;
 animation-iteration-count: infinite;
 animation-duration: 6s;
 animation-direction: alternate;
-animation-delay: 6s;
+animation-delay: 8s;
 
 } 
 
-#cf img.botom {
+#cf img.bottom {
   animation-name: cf3FadeInOut;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
@@ -126,7 +126,7 @@ animation-delay: 6s;
   animation-iteration-count: infinite;
   animation-duration: 6s;
   animation-direction: alternate;
-  animation-delay: 2s;
+  animation-delay: 1s;
 } 
 
 .airplane {
