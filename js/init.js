@@ -112,10 +112,6 @@ var displayCity = function (citydata, searchTerm) {
   // create a link for each historical site
   var cityLstEl = document.createElement("ul");
 
-  // console.log(citydata.features);
-  // citydata.features.sort((a, b) => parseInt(b.properties.rate) - parseInt(a.properties.rate));
-  // console.log(citydata.features);
-
   for (i = 0; i < citydata.features.length; i++) {
     var historic_places = citydata.features[i].properties.name;
     var cityLst = document.createElement("li");
@@ -123,9 +119,11 @@ var displayCity = function (citydata, searchTerm) {
     cityLst.textContent = historic_places;
     cityLstEl.appendChild(cityLst);
   }
-
-  cityContainer.appendChild(cityLstEl);
+ cityContainer.appendChild(cityLstEl);
+ 
 };
+
+
 // var $el1;
 // var $el2;
 
@@ -135,64 +133,6 @@ var displayCity = function (citydata, searchTerm) {
 //     $el1.removeClass('active');
 //     $el2.addClass('active');
 //   }, 2000);
-
-// add event listeners to form and button container
-
-// Local Storage - Chris Backes
-function localStoring(city) {
-  let previousSearch = JSON.parse(localStorage.getItem("search-history"));
-  let searchHistory = [];
-  //loads search history, if any
-  if (previousSearch) {
-    for (let i = 0; i < previousSearch.length; i++) {
-      searchHistory.push(previousSearch[i]);
-    }
-  }
-  //capitalizes each word in the search if they are not already
-  let newTerm = city.trim();
-  if (newTerm.includes(" ")) {
-    let newTermArray = newTerm.split(" ");
-    for (let i = 0; i < newTermArray.length; i++) {
-      newTermArray[i] =
-        newTermArray[i][0].toUpperCase() + newTermArray[i].substr(1);
-    }
-    newTerm = newTermArray.join(" ");
-  } else {
-    newTerm = newTerm[0].toUpperCase() + newTerm.substr(1);
-  }
-  //checks to see if the search term is already in the array, then adds it to array if not in there
-  if (!searchHistory.includes(newTerm)) {
-    searchHistory.unshift(newTerm);
-  }
-  //search history maxes out at 8 terms
-  if (searchHistory.length > 8) {
-    searchHistory.pop();
-  }
-  //stores search history
-  localStorage.setItem("search-history", JSON.stringify(searchHistory));
-}
-
-// Chris Backes -- grabs sotrage and places it in the webpage
-function grabStorage() {
-  console.log("hello");
-  //pulls info from local storage. that info is then displayed below the search bar
-  let searchHistory = JSON.parse(localStorage.getItem("search-history"));
-  if (searchHistory) {
-    for (let i = 0; i < searchHistory.length; i++) {
-      $("#city-buttons").append(
-        "<button class='btn btn-secondary' data-city=" +
-          searchHistory[i] +
-          ">" +
-          searchHistory[i] +
-          "</button>"
-      );
-    }
-    //event listener is added to each button that initiates get weather
-    $(".btn-secondary").on("click", function () {
-      getWeather($(this).text());
-    });
-  }
-}
 
 cityFormEl.addEventListener("submit", formSubmitHandler);
 cityButtonsEl.addEventListener("click", buttonClickHandler);
