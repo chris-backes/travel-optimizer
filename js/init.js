@@ -19,7 +19,7 @@ var formSubmitHandler = function (event) {
   event.preventDefault();
 
   // get value from input element
-  var cityname = cityInputEl.value.trim();
+  var cityName = cityInputEl.value.trim();
 
   if (cityname) {
     getCityData(cityname);
@@ -140,7 +140,7 @@ var displayCity = function (citydata, searchTerm) {
 // add event listeners to form and button container
 
 // Local Storage - Chris Backes
-function localStorage(city) {
+function localStoring(city) {
   let previousSearch = JSON.parse(localStorage.getItem("search-history"));
   let searchHistory = [];
   //loads search history, if any
