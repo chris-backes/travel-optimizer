@@ -19,10 +19,10 @@ var formSubmitHandler = function (event) {
   event.preventDefault();
 
   // get value from input element
-  var cityname = cityInputEl.value.trim();
+  var cityName = cityInputEl.value.trim();
 
-  if (cityname) {
-    getCityData(cityname);
+  if (cityName) {
+    getCityData(cityName);
     // var cityBtn = document.createElement("button");
     // cityBtn.innerHTML = cityname;
     // cityBtn.setAttribute("data-city", cityname);
@@ -125,8 +125,7 @@ var displayCity = function (citydata, searchTerm) {
   }
 
   cityContainer.appendChild(cityLstEl);
-
-}
+};
 // var $el1;
 // var $el2;
 
@@ -140,7 +139,7 @@ var displayCity = function (citydata, searchTerm) {
 // add event listeners to form and button container
 
 // Local Storage - Chris Backes
-function localStorage(city) {
+function localStoring(city) {
   let previousSearch = JSON.parse(localStorage.getItem("search-history"));
   let searchHistory = [];
   //loads search history, if any
@@ -181,7 +180,7 @@ function grabStorage() {
   if (searchHistory) {
     for (let i = 0; i < searchHistory.length; i++) {
       $("#city-buttons").append(
-        "<button class='btn' data-city=" +
+        "<button class='btn btn-secondary' data-city=" +
           searchHistory[i] +
           ">" +
           searchHistory[i] +
