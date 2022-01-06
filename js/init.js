@@ -21,8 +21,8 @@ var formSubmitHandler = function (event) {
   // get value from input element
   var cityName = cityInputEl.value.trim();
 
-  if (cityname) {
-    getCityData(cityname);
+  if (cityName) {
+    getCityData(cityName);
     // var cityBtn = document.createElement("button");
     // cityBtn.innerHTML = cityname;
     // cityBtn.setAttribute("data-city", cityname);
@@ -125,8 +125,7 @@ var displayCity = function (citydata, searchTerm) {
   }
 
   cityContainer.appendChild(cityLstEl);
-
-}
+};
 // var $el1;
 // var $el2;
 
@@ -181,7 +180,7 @@ function grabStorage() {
   if (searchHistory) {
     for (let i = 0; i < searchHistory.length; i++) {
       $("#city-buttons").append(
-        "<button class='btn' data-city=" +
+        "<button class='btn btn-secondary' data-city=" +
           searchHistory[i] +
           ">" +
           searchHistory[i] +
