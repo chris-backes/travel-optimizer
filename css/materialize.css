@@ -9072,3 +9072,12 @@ input[type=range]::-ms-thumb {
     margin-top: 1.2rem;
   }
 }
+
+@media screen and (max-width: 658px) {
+
+  #cf {position: relative;
+    height: 20px;
+    
+  }
+
+};
