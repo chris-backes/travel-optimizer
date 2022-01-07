@@ -4,6 +4,18 @@ var cityInputEl = document.querySelector("#cityname");
 var cityContainerEl = document.querySelector("#city-container");
 var citySearchTerm = document.querySelector("#city-search-term");
 
+
+const apiKey = "5ae2e3f221c38a28845f05b60883896f56d632d8f8d31b794af77353";
+
+
+const pageLength = 5; // number of objects per page
+
+let lon; // place longitude
+let lat; // place latitude
+
+let offset = 0; // offset from first object in the list
+let count; // total objects count
+
 // var getCityHistory = JSON.parse(localStorage.getItem("cityArr")) || [];
 // //console.log(typeof getCityHistory);
 // for (i = 0; i < getCityHistory.length; i++) {
@@ -33,6 +45,7 @@ var formSubmitHandler = function (event) {
     // clear old content
     //cityContainerEl.textContent = "";
     cityInputEl.value = "";
+
   } else {
     alert("Please enter a City name");
   }
@@ -66,31 +79,32 @@ var getCity = function (city) {
     "&apikey=5ae2e3f221c38a28845f05b60883896f56d632d8f8d31b794af77353";
 
   // make a get request to url
-  var lat, lon;
+  //var lat, lon;
   fetch(apiUrl1).then(function (response1) {
     // request was successful
     if (response1.ok) {
       response1.json().then(function (data1) {
         lat = data1.lat;
         lon = data1.lon;
+        firstLoad();
 
-        var apiUrl2 =
-          "https://api.opentripmap.com/0.1/en/places/radius?radius=1600&lon=" +
-          lon +
-          "&lat=" +
-          lat +
-          "&kinds=historic&apikey=5ae2e3f221c38a28845f05b60883896f56d632d8f8d31b794af77353";
+        // var apiUrl2 =
+        //   "https://api.opentripmap.com/0.1/en/places/radius?radius=1600&lon=" +
+        //   lon +
+        //   "&lat=" +
+        //   lat +
+        //   "&kinds=historic&apikey=5ae2e3f221c38a28845f05b60883896f56d632d8f8d31b794af77353";
 
-        fetch(apiUrl2).then(function (response2) {
-          // request was successful
-          if (response2.ok) {
-            response2.json().then(function (data2) {
-              displayCity(data2, city);
-            });
-          } else {
-            alert("Error: " + response2.statusText);
-          }
-        });
+        // fetch(apiUrl2).then(function (response2) {
+        //   // request was successful
+        //   if (response2.ok) {
+        //     response2.json().then(function (data2) {
+        //       displayCity(data2, city);
+        //     });
+        //   } else {
+        //     alert("Error: " + response2.statusText);
+        //   }
+        // });
       });
     } else {
       alert("Error: " + response1.statusText);
@@ -188,12 +202,136 @@ function grabStorage() {
       );
     }
     //event listener is added to each button that initiates get weather
-    $(".btn-secondary").on("click", function () {
-      getWeather($(this).text());
-    });
+    //commented this out because it is erroring - add it back later once figured out why.  This was created by Chris.
+    // $(".btn-secondary").on("click", function () {
+    //   getWeather($(this).text());
+    // });
   }
 }
+
+
+function apiGet(method, query) {
+  return new Promise(function(resolve, reject) {
+    var otmAPI =
+      "https://api.opentripmap.com/0.1/en/places/" +
+      method +
+      "?apikey=" +
+      apiKey;
+    if (query !== undefined) {
+      otmAPI += "&" + query;
+    }
+    fetch(otmAPI)
+      .then(response => response.json())
+      .then(data => resolve(data))
+      .catch(function(err) {
+        console.log("Fetch Error :-S", err);
+      });
+  });
+}
+
+function firstLoad() {
+  apiGet(
+    "radius",
+    `radius=1000&limit=${pageLength}&offset=${offset}&lon=${lon}&lat=${lat}&rate=2&format=count`
+  ).then(function(data) {
+    count = data.count;
+    offset = 0;
+    document.getElementById(
+      "city-container"
+    ).innerHTML += `<p>${count} objects with description in a 1km radius</p>`;
+    loadList();
+  });
+}
+
+function loadList() {
+  apiGet(
+    "radius",
+    `radius=1000&limit=${pageLength}&offset=${offset}&lon=${lon}&lat=${lat}&rate=2&format=json`
+  ).then(function(data) {
+    let list = document.getElementById("list");
+    list.innerHTML = "";
+    data.forEach(item => list.appendChild(createListItem(item)));
+    let nextBtn = document.getElementById("next_button");
+    if (count < offset + pageLength) {
+      nextBtn.style.visibility = "hidden";
+    } else {
+      nextBtn.style.visibility = "visible";
+      nextBtn.innerText = `Next (${offset + pageLength} of ${count})`;
+    }
+  });
+}
+
+
+function createListItem(item) {
+  let a = document.createElement("a");
+  a.className = "list-group-item list-group-item-action";
+  a.setAttribute("data-id", item.xid);
+  a.innerHTML = `<h5 class="list-group-item-heading">${item.name}</h5>
+            <p class="list-group-item-text">${item.kinds}</p>`;
+
+  a.addEventListener("click", function() {
+    document.querySelectorAll("#list a").forEach(function(item) {
+      item.classList.remove("active");
+    });
+    this.classList.add("active");
+    let xid = this.getAttribute("data-id");
+    apiGet("xid/" + xid).then(data => onShowPOI(data));
+  });
+  return a;
+}
+
+function onShowPOI(data) {
+  let poi = document.getElementById("poi");
+  poi.innerHTML = "";
+  if (data.preview) {
+    poi.innerHTML += `<img src="${data.preview.source}">`;
+  }
+  poi.innerHTML += data.wikipedia_extracts
+    ? data.wikipedia_extracts.html
+    : data.info
+    ? data.info.descr
+    : "No description";
+
+  poi.innerHTML += `<p><a target="_blank" href="${data.otm}">Show more at OpenTripMap</a></p>`;
+}
+
+document
+.getElementById("next_button")
+.addEventListener("click", function() {
+  offset += pageLength;
+  loadList();
+});
 
 cityFormEl.addEventListener("submit", formSubmitHandler);
 cityButtonsEl.addEventListener("click", buttonClickHandler);
 $(document).ready(grabStorage);
+
+
+//added code that was copied and modified from from the API site https://opentripmap.io
+
+
+
+
+// document
+// .getElementById("city-form")
+// .addEventListener("submit", function(event) {
+//   let name = document.getElementById("cityname").value;
+//   apiGet("geoname", "name=" + name).then(function(data) {
+//     let message = "Name not found";
+//     if (data.status == "OK") {
+//       message = data.name + ", " + data.country;
+//       lon = data.lon;
+//       lat = data.lat;
+//       firstLoad();
+//     }
+//     document.getElementById("city-container").innerHTML = `${message}`;
+//   });
+//   event.preventDefault();
+// });
+
+
+
+ 
+
+
+
