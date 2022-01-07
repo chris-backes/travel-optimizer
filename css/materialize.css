@@ -2867,6 +2867,12 @@ ul.staggered-list li {
   }
 }
 
+@media  screen and (max-width: 600px) {
+  #cf {position: relative;
+    height: 100px;
+  }
+}
+
 @media only screen and (max-width: 992px) {
   .hide-on-med-and-down {
     display: none !important;
@@ -4950,6 +4956,9 @@ small {
     min-width: 100%;
     bottom: 0%;
   }
+  #cf {position: relative;
+    height: 200px;
+}
 }
 
 @media only screen and (min-width: 601px) and (max-width: 992px) {
@@ -9072,3 +9081,4 @@ input[type=range]::-ms-thumb {
     margin-top: 1.2rem;
   }
 }
+

@@ -71,12 +71,11 @@ position: relative;
 }
 
 #cf {position: relative;
-  height:900px;
-  width:450px;
-  /* margin:0 auto; */
+  height: 900px;
 }
 
 #cf img {
+
   position:absolute;
   left:0;
   -webkit-transition: opacity 1s ease-in-out;
@@ -101,6 +100,7 @@ opacity:0;
 } 
 
 #cf img.top {
+  
 animation-name: cf3FadeInOut;
 animation-timing-function: ease-in-out;
 animation-iteration-count: infinite;
@@ -132,3 +132,48 @@ animation-delay: 8s;
 .airplane {
   text-align: center;
 }
+
+
+ @media screen and (max-width: 1024px) {
+
+  #cf {position: relative;
+    height: 450px;
+    
+  }
+
+}; 
+
+
+
+/* @media screen and (max-width: 980px) {
+
+  #cf {position: relative;
+    height: 490px;
+    
+  }
+
+}; */
+
+/* @media screen and (max-width: 768px) {
+
+  #cf {
+    height: 300px;
+    
+  }
+
+}; */
+
+
+/* @media screen and (max-width: 658px) {
+
+  #cf {position: relative;
+    height: 20px;
+    
+  }
+
+}; */
+
+
+
+
+
