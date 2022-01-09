@@ -71,7 +71,8 @@ position: relative;
 }
 
 #cf {position: relative;
-  height: 900px;
+  height: 1000px;
+  ;
 }
 
 #cf img {
@@ -82,6 +83,7 @@ position: relative;
   -moz-transition: opacity 1s ease-in-out;
   -o-transition: opacity 1s ease-in-out;
   transition: opacity 1s ease-in-out;
+  max-width: auto
 }
 
 @keyframes cf3FadeInOut {
@@ -107,6 +109,7 @@ animation-iteration-count: infinite;
 animation-duration: 6s;
 animation-direction: alternate;
 animation-delay: 8s;
+width: 100%;
 
 } 
 
@@ -117,6 +120,7 @@ animation-delay: 8s;
   animation-duration: 6s;
   animation-direction: alternate;
   animation-delay: 4s;
+  width: 100%;
   
   }
 
@@ -127,6 +131,7 @@ animation-delay: 8s;
   animation-duration: 6s;
   animation-direction: alternate;
   animation-delay: 1s;
+  width: 100%;
 } 
 
 .airplane {
