@@ -265,6 +265,7 @@ function loadList() {
 function createListItem(item) {
   let a = document.createElement("a");
   a.className = "list-group-item list-group-item-action";
+  a.classList.add("listStyle");
   a.setAttribute("data-id", item.xid);
   a.innerHTML = `<h5 class="list-group-item-heading">${item.name}</h5>
             <p class="list-group-item-text">${item.kinds}</p>`;
