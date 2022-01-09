@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1.0"
+    />
+    <title>Travel Planner - Materialize</title>
+    <!-- Mapbox -Lando -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet'/>
+
+    <!-- CSS  -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="css/materialize.css"
+      type="text/css"
+      rel="stylesheet"
+      media="screen,projection"
+    />
+    <link
+      href="css/style.css"
+      type="text/css"
+      rel="stylesheet"
+      media="screen,projection"
+    />
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Merriweather:ital@1&family=Parisienne&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  </head>
+  <body>
+    <nav class="light-blue lighten-1" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="#" class="brand-logo"
+          >Apptimize Your Travel Plans</a
+        >
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#contain">Search</a></li>
+          <li><a href="#">About Us</a></li>
+        </ul>
+
+        <ul id="nav-mobile" class="sidenav">
+          <li><a href="#">Navbar Link</a></li>
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"
+          ><i class="material-icons">menu</i></a
+        >
+      </div>
+    </nav>
+    <div class="banner" id="cf">
+      <img class="top responsive-img" src="Screen Shot 2022-01-05 at 9.50.37 AM.png" />
+      <img class="bottom responsive-img" src="Screen Shot 2022-01-05 at 10.02.55 AM.png" />
+      <img class="bottom2 responsive-img" src="Screen Shot 2022-01-05 at 9.58.47 AM.png"/>
+    </div>
+
+      <div class="container" id="contain">
+        <br /><br />
+        <div class= "airplane">
+        <i class="large material-icons contain_icon">airplanemode_active</i>
+      </div>
+        <h1 class="header center orange-text">Travel Itinerary Dashboard</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">
+            Search for a city and get an itinerary of things to do!
+          </h5>
+        </div>
+        <div class="row s6 center">
+          <form id="city-form" class="card-body">
+            <label class="form-label" for="cityname">Enter a City name</label>
+            <input
+              name="cityname"
+              id="cityname"
+              type="text"
+              autofocus="true"
+              class="form-input"
+            />
+            <button type="submit" class="btn s6">Get Things to Do</button>
+          </form>
+        </div>
+      
+        <br /><br />
+      </div>
+    </div>
+
+    <main class="flex-row justify-space-between container">
+      <div class="row">
+      <div class=" col s6">
+          <h3 class="card-header text-uppercase">Most Popular Destinations</h3>
+          <div id="city-buttons" class="card-body s6">
+            <button data-city="Austin" class="btn">Austin</button>
+            <button data-city="London" class="btn">London</button>
+            <button data-city="Tokyo" class="btn">Tokyo</button>
+            <button data-city="New York City" class="btn">New York City</button>
+          </div>
+      </div>
+    
+
+      
+
+      <div class="col s6">
+        <h2 class="subtitle">
+          Things to do in: <span id="city-search-term"></span>
+        </h2>
+        <div id="city-container" class="list-group">
+        </div>
+      </div>
+              <!-- BEGIN NEW -->
+              <ul id="list"></ul>
+              <div id="poi"></div>
+              <button id="next_button">Next</button>
+              <!-- END NEW -->
+
+              <!-- Map -Lando-->
+              <h3 class="card-header text-uppercase">-----Search Points of Interest Near Your Current Location----</h3>
+              <div id='map' style='width: 1200px; height: 600px;'></div>
+              
+<script>  mapboxgl.accessToken = 'pk.eyJ1Ijoib2xvcGV6OTIwODQiLCJhIjoiY2t5NnI2MDlqMG42ZTJvcWkybGtobW92ZyJ9.07gsbcPupXhcC_7Wf4_BGg';
+const map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/olopez92084/cky6s06631d4p15o1kb7ut2qq', //style URL
+center: [-73.98, 40.76], // starting position
+zoom: 9 // starting zoom
+});
+map.addControl(new mapboxgl.NavigationControl());
+// Initialize the GeolocateControl.
+const geolocate = new mapboxgl.GeolocateControl({
+positionOptions: {
+enableHighAccuracy: true
+},
+trackUserLocation: true
+});
+// Add the control to the map.
+map.addControl(geolocate);
+// Set an event listener that fires
+// when a trackuserlocationstart event occurs.
+geolocate.on('trackuserlocationstart', () => {
+console.log('A trackuserlocationstart event has occurred.');
+});
+</script>
+
+    </div>
+    </main>
+
+    <footer class="page-footer orange">
+        <div class="row">
+          <div class="col l6 s12"></div>
+          <div class="col l3 s12">
+            <h5 class="white-text">Settings</h5>
+            <ul>
+              <li><a class="white-text" href="#!">Link 1</a></li>
+            </ul>
+          </div>
+          <div class="col l3 s12">
+            <h5 class="white-text">Connect</h5>
+            <ul>
+              <li><a class="white-text" href="#!">Link 2</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">Made by the Apptimizers</div>
+      </div>
+    </footer>
+
+    <!--  Scripts-->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/init.js"></script>
+  </body>
+</html>

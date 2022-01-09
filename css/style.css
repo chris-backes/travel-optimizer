@@ -1,0 +1,174 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+
+/* .banner {
+background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/Users/kareemmagdy/Desktop/travel-optimizer/oct2015_d06_pyramids.jpeg");
+background-size: cover;
+background-position: 30%;
+height: 900px;
+position: relative;
+
+}
+
+.banner .tr {color: white;
+    display: inline-block;
+    position: absolute;
+    align-items: center;
+    font-size: 200px;
+    font-weight: lighter;
+    font-family: 'Parisienne', cursive;
+    right: 1214px;
+    bottom: 485px;
+  } */
+
+
+
+/* 
+#cf {
+  height: 100px;
+  width: 100px;
+ }
+ 
+ .bg-container {
+   position: fixed;
+   top:0;
+   left:0;
+   height: 100%;
+   width: 100%;
+   transition: 2s;
+   opacity: 0;
+ }
+ 
+ .bg-container.active {
+   opacity: 1;
+ }
+ 
+ .bg-container-1 {
+  background-image: url(/Users/kareemmagdy/Desktop/travel-optimizer/The_Colosseum_Rome.jpeg);
+
+ }
+ 
+ .bg-container-2 {
+   background-image: url(/Users/kareemmagdy/Desktop/travel-optimizer/oct2015_d06_pyramids.jpeg);
+
+ } */
+
+ body {
+  margin: 0 auto;
+  position: relative;
+}
+
+#cf {position: relative;
+  height: 900px;
+}
+
+#cf img {
+
+  position:absolute;
+  left:0;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}
+
+@keyframes cf3FadeInOut {
+  0% {
+  opacity:1;
+}
+45% {
+opacity:1;
+}
+55% {
+opacity:0;
+}
+100% {
+opacity:0;
+}
+} 
+
+#cf img.top {
+  
+animation-name: cf3FadeInOut;
+animation-timing-function: ease-in-out;
+animation-iteration-count: infinite;
+animation-duration: 6s;
+animation-direction: alternate;
+animation-delay: 8s;
+
+} 
+
+#cf img.bottom {
+  animation-name: cf3FadeInOut;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 6s;
+  animation-direction: alternate;
+  animation-delay: 4s;
+  
+  }
+
+#cf img.bottom2 {
+  animation-name: cf3FadeInOut;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 6s;
+  animation-direction: alternate;
+  animation-delay: 1s;
+} 
+
+.airplane {
+  text-align: center;
+}
+
+
+ @media screen and (max-width: 1024px) {
+
+  #cf {position: relative;
+    height: 450px;
+    
+  }
+
+}; 
+
+
+
+/* @media screen and (max-width: 980px) {
+
+  #cf {position: relative;
+    height: 490px;
+    
+  }
+
+}; */
+
+/* @media screen and (max-width: 768px) {
+
+  #cf {
+    height: 300px;
+    
+  }
+
+}; */
+
+
+/* @media screen and (max-width: 658px) {
+
+  #cf {position: relative;
+    height: 20px;
+    
+  }
+
+}; */
