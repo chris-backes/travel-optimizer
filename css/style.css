@@ -179,6 +179,23 @@ width: 100%;
 }; */
 
 
+#id p {background-color: white;}
 
 
+.listStyle {
+  border-top: 1px solid black;
+  margin-top: 1000px;
 
+}
+
+.spaceBt {
+  margin-top:30px;
+}
+
+#buttonPos {
+text-align: center;
+}
+
+#next_button{
+margin-right: 10px;
+};
