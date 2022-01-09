@@ -4,7 +4,9 @@ var cityInputEl = document.querySelector("#cityname");
 var cityContainerEl = document.querySelector("#city-container");
 var citySearchTerm = document.querySelector("#city-search-term");
 
+
 const apiKey = "5ae2e3f221c38a28845f05b60883896f56d632d8f8d31b794af77353";
+
 
 const pageLength = 5; // number of objects per page
 
@@ -43,6 +45,7 @@ var formSubmitHandler = function (event) {
     // clear old content
     //cityContainerEl.textContent = "";
     cityInputEl.value = "";
+
   } else {
     alert("Please enter a City name");
   }
@@ -206,9 +209,9 @@ function grabStorage() {
   }
 }
 
-//added code that was copied and modified from from the API site https://opentripmap.io until the "END API site code"
+
 function apiGet(method, query) {
-  return new Promise(function (resolve, reject) {
+  return new Promise(function(resolve, reject) {
     var otmAPI =
       "https://api.opentripmap.com/0.1/en/places/" +
       method +
@@ -218,9 +221,9 @@ function apiGet(method, query) {
       otmAPI += "&" + query;
     }
     fetch(otmAPI)
-      .then((response) => response.json())
-      .then((data) => resolve(data))
-      .catch(function (err) {
+      .then(response => response.json())
+      .then(data => resolve(data))
+      .catch(function(err) {
         console.log("Fetch Error :-S", err);
       });
   });
@@ -229,9 +232,8 @@ function apiGet(method, query) {
 function firstLoad() {
   apiGet(
     "radius",
-    `radius=1500&limit=${pageLength}&offset=${offset}&lon=${lon}&lat=${lat}&rate=2&format=count`
-    //`radius=1000&limit=${pageLength}&offset=${offset}&lon=${lon}&lat=${lat}&rate=2&format=count` MB commented out to check rate changes
-  ).then(function (data) {
+    `radius=1000&limit=${pageLength}&offset=${offset}&lon=${lon}&lat=${lat}&rate=2&format=count`
+  ).then(function(data) {
     count = data.count;
     offset = 0;
     document.getElementById(
@@ -244,12 +246,11 @@ function firstLoad() {
 function loadList() {
   apiGet(
     "radius",
-    `radius=1500&limit=${pageLength}&offset=${offset}&lon=${lon}&lat=${lat}&rate=2&sort_by=rate.desc&format=json`
-    //`radius=1000&limit=${pageLength}&offset=${offset}&lon=${lon}&lat=${lat}&rate=2&format=json`
-  ).then(function (data) {
+    `radius=1000&limit=${pageLength}&offset=${offset}&lon=${lon}&lat=${lat}&rate=2&format=json`
+  ).then(function(data) {
     let list = document.getElementById("list");
     list.innerHTML = "";
-    data.forEach((item) => list.appendChild(createListItem(item)));
+    data.forEach(item => list.appendChild(createListItem(item)));
     let nextBtn = document.getElementById("next_button");
     if (count < offset + pageLength) {
       nextBtn.style.visibility = "hidden";
@@ -260,6 +261,7 @@ function loadList() {
   });
 }
 
+
 function createListItem(item) {
   let a = document.createElement("a");
   a.className = "list-group-item list-group-item-action";
@@ -267,13 +269,13 @@ function createListItem(item) {
   a.innerHTML = `<h5 class="list-group-item-heading">${item.name}</h5>
             <p class="list-group-item-text">${item.kinds}</p>`;
 
-  a.addEventListener("click", function () {
-    document.querySelectorAll("#list a").forEach(function (item) {
+  a.addEventListener("click", function() {
+    document.querySelectorAll("#list a").forEach(function(item) {
       item.classList.remove("active");
     });
     this.classList.add("active");
     let xid = this.getAttribute("data-id");
-    apiGet("xid/" + xid).then((data) => onShowPOI(data));
+    apiGet("xid/" + xid).then(data => onShowPOI(data));
   });
   return a;
 }
@@ -293,18 +295,22 @@ function onShowPOI(data) {
   poi.innerHTML += `<p><a target="_blank" href="${data.otm}">Show more at OpenTripMap</a></p>`;
 }
 
-document.getElementById("next_button").addEventListener("click", function () {
+document
+.getElementById("next_button")
+.addEventListener("click", function() {
   offset += pageLength;
   loadList();
 });
-
-//END API site code
 
 cityFormEl.addEventListener("submit", formSubmitHandler);
 cityButtonsEl.addEventListener("click", buttonClickHandler);
 $(document).ready(grabStorage);
 
+
 //added code that was copied and modified from from the API site https://opentripmap.io
+
+
+
 
 // document
 // .getElementById("city-form")
@@ -322,3 +328,12 @@ $(document).ready(grabStorage);
 //   });
 //   event.preventDefault();
 // });
+
+
+//Lando API Key = AIzaSyCoPP5u7-67QyAUK9Tn1vBie4c_xQBIg3M
+
+
+ 
+
+
+
