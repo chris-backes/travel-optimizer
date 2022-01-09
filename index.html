@@ -30,6 +30,7 @@
 
   </head>
   <body>
+
     <nav class="light-blue lighten-1" role="navigation">
       <div class="nav-wrapper container">
         <a id="logo-container" href="#" class="brand-logo"
@@ -66,6 +67,8 @@
           </h5>
         </div>
         <div class="row s6 center">
+
+          
           <form id="city-form" class="card-body">
             <label class="form-label" for="cityname">Enter a City name</label>
             <input
@@ -75,7 +78,25 @@
               autofocus="true"
               class="form-input"
             />
-            <a type="submit" class="btn s6">Get Things to Do</a>
+            <!-- <a type="submit" class="btn s6">Get Things to Do</a> -->
+ 
+            <!-- <a class="btn s6 waves-effect waves-light btn pink darken-1 modal-trigger" type="submit" href="#demo-modal">Get Things to Do</a> -->
+            <button class="btn waves-effect waves-light modal-trigger s6" type="submit" href="#modal-trigger" id="cityname">Get Things to Do</button>
+                <!-- Modal Structure -->
+                <div id="#modal-trigger" class="modal modal-trigger">
+                  <div class="modal-content">
+                    <p>Please enter a City name</p>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Close</a>
+                  </div>
+                </div>
+              </div>
+          
+
+
+
+
           </form>
         </div>
       
@@ -84,8 +105,8 @@
     </div>
 
     <main class="flex-row justify-space-between container" id="search2">
-      <div class="row">
-      <div class=" col s6">
+      <div class="row" id="search6">
+      <div class=" col s5" id="search3">
           <h3 class="card-header text-uppercase">Search By City Button</h3>
           <div id="city-buttons" class="card-body s6">
             <button data-city="Austin" class="btn">Austin</button>
@@ -97,10 +118,10 @@
             </div>
       </div>
     
-
+      <div class="col s1"> </div>
       
 
-      <div class="col s6">
+      <div class="col s5" id="search4">
         <h2 class="subtitle">
           Info: <span id="city-search-term"></span>
         </h2>
@@ -119,6 +140,16 @@
     <div class="spaceBt">
 
     </div>
+
+
+
+
+   
+
+
+
+
+
     
     <footer class="page-footer orange">
         <div class="row">
@@ -150,5 +181,8 @@
     >
   </script>
     <script src="js/init.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    
   </body>
 </html>

@@ -182,14 +182,8 @@ width: 100%;
 #id p {background-color: white;}
 
 
-.listStyle {
-  border-top: 1px solid black;
-  margin-top: 1000px;
-
-}
-
 .spaceBt {
-  margin-top:30px;
+  margin-top:30px;  
 }
 
 #buttonPos {
@@ -197,5 +191,42 @@ text-align: center;
 }
 
 #next_button{
-margin-right: 10px;
+margin-right: 205px;
+margin-bottom: 20px
 };
+
+
+.styleLs  {
+  background-color: aqua;
+
+}
+
+h5 {
+  border-bottom: 4px sold #26a69a;
+}
+
+#search3 {
+  border: 2px solid #26a69a;
+  border-radius: 6px;
+  overflow: auto;
+  text-align: center;
+}
+
+#search4 {
+  border: 2px solid #26a69a;
+  overflow: auto;
+  border-radius: 6px;
+  /* padding-bottom: 182px; */
+  text-align: center;
+}
+
+/* 
+#search2 {
+  justify-content: space-between;
+} */
+
+
+#search6 {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;}
