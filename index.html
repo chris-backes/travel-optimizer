@@ -83,13 +83,15 @@
       </div>
     </div>
 
-    <main class="flex-row justify-space-between container">
+    <main class="flex-row justify-space-between container" id="search2">
       <div class="row">
       <div class=" col s6">
           <h3 class="card-header text-uppercase">Search By City Button</h3>
           <div id="city-buttons" class="card-body s6">
             <button data-city="Austin" class="btn">Austin</button>
+            <div id="city-container">Cities</div>
           </div>
+          <ul id="list"></ul>
       </div>
     
 
@@ -97,14 +99,15 @@
 
       <div class="col s6">
         <h2 class="subtitle">
-          Things to do in: <span id="city-search-term"></span>
+          Info: <span id="city-search-term"></span>
         </h2>
-        <div id="city-container" class="list-group">
+        <!-- <div id="city-container" class="list-group"> -->
+          <div id="poi"></div>
         </div>
       </div>
               <!-- BEGIN NEW -->
-              <ul id="list"></ul>
-              <div id="poi"></div>
+              
+              
               <button id="next_button">Next</button>
               <!-- END NEW -->
     </div>
