@@ -236,4 +236,9 @@ h5 {
 .page-footer .container {
   padding-bottom: 20px;
   font-weight: normal;
+  font-size: 20px;
+}
+
+#logo-container .material-icons {
+  font-size:50px;
 }
