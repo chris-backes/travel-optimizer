@@ -49,7 +49,12 @@ var formSubmitHandler = function (event) {
   } else {  
     // $(document).ready(function(){
     //   // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-      $('.modal-trigger').modal();
+      //$('.modal-trigger').modal();
+
+      $(document).ready(function(){
+        $('.modal').modal();
+      })
+      
     // });
     
   }
