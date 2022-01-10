@@ -39,5 +39,8 @@ Update - List API's used in Project
 Update with - Add Screenshot of completed project 
 
 
-UPDATE with - link to deployed application below:
--
+Link to deployed application below:
+-https://maryjezek.github.io/travel-optimizer/
+
+Link to Travel-Optimizer Repo below:
+https://github.com/Maryjezek/travel-optimizer.git

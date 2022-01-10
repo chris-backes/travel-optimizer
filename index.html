@@ -37,7 +37,7 @@
     <nav class="light-blue lighten-1" role="navigation">
       <div class="nav-wrapper container">
         <a id="logo-container" href="#" class="brand-logo"
-          >Apptimize Your Travel Plans</a
+          ><i class="Large material-icons ">flight_takeoff</i>Apptimize Your Travel Plans</a
         >
         <ul class="right hide-on-med-and-down">
           <li><a href="#contain">Search</a></li>
@@ -142,15 +142,17 @@
               <!-- END NEW -->
 
               <!-- Map -Lando-->
-              <h3 class="card-header text-uppercase">-----Search Points of Interest Near Your Current Location----</h3>
-              <div id='map' style='width: 1200px; height: 600px;'></div>
+              <div class="map-space">
+              <h3 class="card-header text-uppercase map-title">Search Points of Interest Near Your Current Location</h3>
+              <div class="map row">
+              <div id='map' style='width: 1200px; height: 600px;' class="col s12 m6 12">
               
 <script>  mapboxgl.accessToken = 'pk.eyJ1Ijoib2xvcGV6OTIwODQiLCJhIjoiY2t5NnI2MDlqMG42ZTJvcWkybGtobW92ZyJ9.07gsbcPupXhcC_7Wf4_BGg';
 const map = new mapboxgl.Map({
 container: 'map',
 style: 'mapbox://styles/olopez92084/cky6s06631d4p15o1kb7ut2qq', //style URL
 center: [-73.98, 40.76], // starting position
-zoom: 9 // starting zoom
+zoom: 13 // starting zoom
 });
 map.addControl(new mapboxgl.NavigationControl());
 // Initialize the GeolocateControl.
@@ -168,7 +170,9 @@ geolocate.on('trackuserlocationstart', () => {
 console.log('A trackuserlocationstart event has occurred.');
 });
 </script>
-
+</div>
+</div>
+</div>
     </div>
     </main>   
     <div class="spaceBt">
@@ -186,25 +190,9 @@ console.log('A trackuserlocationstart event has occurred.');
 
     
     <footer class="page-footer orange">
-        <div class="row">
-          <div class="col l6 s12"></div>
-          <div class="col l3 s12">
-            <h5 class="white-text">Settings</h5>
-            <ul>
-              <li><a class="white-text" href="#!">Link 1</a></li>
-            </ul>
-          </div>
-          <div class="col l3 s12">
-            <h5 class="white-text">Connect</h5>
-            <ul>
-              <li><a class="white-text" href="#!">Link 2</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="footer-copyright">
-        <div class="container">Made by the Apptimizers</div>
-      </div>
+
+      <div class="container"><i class="material-icons">copyright</i> Made by the Apptimizers</div>
+
     </footer>
 
     <!--  Scripts-->

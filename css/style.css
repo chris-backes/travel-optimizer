@@ -6,7 +6,7 @@
  * Made By MaterializeCSS.com
  */
 
-.icon-block {
+ .icon-block {
   padding: 0 15px;
 }
 .icon-block .material-icons {
@@ -177,12 +177,12 @@ width: 100%;
   }
 
 }; */
-<<<<<<< HEAD
 
 
 #id p {background-color: white;}
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 .listStyle {
   border-top: 1px solid black;
@@ -196,21 +196,26 @@ width: 100%;
 
 =======
 >>>>>>> kareem-css
+=======
+>>>>>>> main
 .spaceBt {
-  margin-top:30px;  
+  text-align: center;
+  margin-top:30px;
 }
 
 #buttonPos {
-text-align: center;
+align-items: center;
 }
 
 #next_button{
-margin-right: 205px;
 margin-bottom: 20px
 };
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> kareem-css
 =======
+=======
+>>>>>>> main
 
 
 .styleLs  {
@@ -227,6 +232,8 @@ h5 {
   border-radius: 6px;
   overflow: auto;
   text-align: center;
+  cursor:pointer;
+
 }
 
 #search4 {
@@ -247,4 +254,47 @@ h5 {
   display: flex;
   justify-content: center;
   align-items: stretch;}
+<<<<<<< HEAD
 >>>>>>> kareem-css
+=======
+
+
+.page-footer .container {
+  padding-bottom: 20px;
+  font-weight: normal;
+  font-size: 20px;
+}
+
+#logo-container .material-icons {
+  font-size:50px;
+}
+
+.map {
+  text-align:center;
+  display: flex;
+}
+
+#map {
+  align-items:center;
+  display: flex;
+
+}
+
+.map-title {
+  text-align:center;
+  padding-bottom: 40px;
+}
+
+
+.map-space {
+  margin-top: 60px;
+}
+
+.card-header {
+  color: #ff9800;
+}
+
+.subtitle {
+  color: #ff9800
+}
+>>>>>>> main
