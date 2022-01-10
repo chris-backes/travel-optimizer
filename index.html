@@ -131,7 +131,7 @@
         <!-- <div id="city-container" class="list-group"> -->
           <div id="poi"></div>
         </div>
-      </div class="oMap">
+      </div>
               <!-- BEGIN NEW -->
               
               <!-- <div id="buttonPos">
@@ -140,15 +140,17 @@
               <!-- END NEW -->
 
               <!-- Map -Lando-->
-              <h3 class="card-header text-uppercase">-----Search Points of Interest Near Your Current Location----</h3>
-              <div id='map' style='width: 1200px; height: 600px;'></div>
+              <div class="map-space">
+              <h3 class="card-header text-uppercase map-title">Search Points of Interest Near Your Current Location</h3>
+              <div class="map row">
+              <div id='map' style='width: 1200px; height: 600px;' class="col s12 m6 12">
               
 <script>  mapboxgl.accessToken = 'pk.eyJ1Ijoib2xvcGV6OTIwODQiLCJhIjoiY2t5NnI2MDlqMG42ZTJvcWkybGtobW92ZyJ9.07gsbcPupXhcC_7Wf4_BGg';
 const map = new mapboxgl.Map({
 container: 'map',
 style: 'mapbox://styles/olopez92084/cky6s06631d4p15o1kb7ut2qq', //style URL
 center: [-73.98, 40.76], // starting position
-zoom: 9 // starting zoom
+zoom: 13 // starting zoom
 });
 map.addControl(new mapboxgl.NavigationControl());
 // Initialize the GeolocateControl.
@@ -166,7 +168,9 @@ geolocate.on('trackuserlocationstart', () => {
 console.log('A trackuserlocationstart event has occurred.');
 });
 </script>
-
+</div>
+</div>
+</div>
     </div>
     </main>   
     <div class="spaceBt">
