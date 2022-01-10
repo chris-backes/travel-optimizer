@@ -6,7 +6,7 @@
  * Made By MaterializeCSS.com
  */
 
-.icon-block {
+ .icon-block {
   padding: 0 15px;
 }
 .icon-block .material-icons {
@@ -184,6 +184,7 @@ width: 100%;
 
 .spaceBt {
   text-align: center;
+  margin-top:30px;
 }
 
 #buttonPos {
@@ -241,4 +242,33 @@ h5 {
 
 #logo-container .material-icons {
   font-size:50px;
+}
+
+.map {
+  text-align:center;
+  display: flex;
+}
+
+#map {
+  align-items:center;
+  display: flex;
+
+}
+
+.map-title {
+  text-align:center;
+  padding-bottom: 40px;
+}
+
+
+.map-space {
+  margin-top: 60px;
+}
+
+.card-header {
+  color: #ff9800;
+}
+
+.subtitle {
+  color: #ff9800
 }

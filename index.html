@@ -7,6 +7,9 @@
       content="width=device-width, initial-scale=1, maximum-scale=1.0"
     />
     <title>Travel Planner - Materialize</title>
+    <!-- Mapbox -Lando -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet'/>
 
     <!-- CSS  -->
     <link
@@ -135,6 +138,39 @@
               <button id="next_button" class="waves-effect waves-light btn">Next</button>
               </div> -->
               <!-- END NEW -->
+
+              <!-- Map -Lando-->
+              <div class="map-space">
+              <h3 class="card-header text-uppercase map-title">Search Points of Interest Near Your Current Location</h3>
+              <div class="map row">
+              <div id='map' style='width: 1200px; height: 600px;' class="col s12 m6 12">
+              
+<script>  mapboxgl.accessToken = 'pk.eyJ1Ijoib2xvcGV6OTIwODQiLCJhIjoiY2t5NnI2MDlqMG42ZTJvcWkybGtobW92ZyJ9.07gsbcPupXhcC_7Wf4_BGg';
+const map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/olopez92084/cky6s06631d4p15o1kb7ut2qq', //style URL
+center: [-73.98, 40.76], // starting position
+zoom: 9 // starting zoom
+});
+map.addControl(new mapboxgl.NavigationControl());
+// Initialize the GeolocateControl.
+const geolocate = new mapboxgl.GeolocateControl({
+positionOptions: {
+enableHighAccuracy: true
+},
+trackUserLocation: true
+});
+// Add the control to the map.
+map.addControl(geolocate);
+// Set an event listener that fires
+// when a trackuserlocationstart event occurs.
+geolocate.on('trackuserlocationstart', () => {
+console.log('A trackuserlocationstart event has occurred.');
+});
+</script>
+</div>
+</div>
+</div>
     </div>
     </main>   
     <div class="spaceBt">
@@ -162,8 +198,7 @@
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
       crossorigin="anonymous"
-    >
-  </script>
+    ></script>
     <script src="js/init.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
