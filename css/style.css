@@ -6,7 +6,7 @@
  * Made By MaterializeCSS.com
  */
 
-.icon-block {
+ .icon-block {
   padding: 0 15px;
 }
 .icon-block .material-icons {
@@ -177,25 +177,11 @@ width: 100%;
   }
 
 }; */
-<<<<<<< HEAD
 
 
 #id p {background-color: white;}
 
 
-<<<<<<< HEAD
-.listStyle {
-  border-top: 1px solid black;
-  margin-top: 1000px;
-
-<<<<<<< HEAD
-=======
->>>>>>> origin/Lando
-=======
-}
-
-=======
->>>>>>> kareem-css
 .spaceBt {
   margin-top:30px;  
 }
@@ -208,9 +194,6 @@ text-align: center;
 margin-right: 205px;
 margin-bottom: 20px
 };
-<<<<<<< HEAD
->>>>>>> kareem-css
-=======
 
 
 .styleLs  {
@@ -250,10 +233,13 @@ h5 {
   justify-content: center;
   align-items: stretch;}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> kareem-css
 =======
+=======
+>>>>>>> 524a333e2178fbc19a76a82d2eb2ebc06cdd8c47
 
 
 .page-footer .container {
@@ -265,6 +251,7 @@ h5 {
 #logo-container .material-icons {
 <<<<<<< HEAD
   font-size:50px;
+<<<<<<< HEAD
 }
 >>>>>>> kareem-css
 >>>>>>> ee0e9cfa20cdd87613dd524005d032c00a1a6348
@@ -272,3 +259,6 @@ h5 {
   font-size:55px;
 }
 >>>>>>> kareem-css
+=======
+}
+>>>>>>> 524a333e2178fbc19a76a82d2eb2ebc06cdd8c47
