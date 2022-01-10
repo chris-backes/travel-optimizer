@@ -249,3 +249,21 @@ h5 {
   display: flex;
   justify-content: center;
   align-items: stretch;}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> kareem-css
+=======
+
+
+.page-footer .container {
+  padding-bottom: 20px;
+  font-weight: normal;
+  font-size: 20px;
+}
+
+#logo-container .material-icons {
+  font-size:50px;
+}
+>>>>>>> kareem-css
+>>>>>>> ee0e9cfa20cdd87613dd524005d032c00a1a6348
