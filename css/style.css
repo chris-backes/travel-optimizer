@@ -243,3 +243,22 @@ h5 {
 #logo-container .material-icons {
   font-size:50px;
 }
+
+.map {
+  text-align:center;
+  display: flex;
+}
+
+#map {
+  align-items:center;
+  display: flex;
+
+}
+
+.map-title {
+  text-align:center;
+}
+
+.map-space {
+  margin-top: 100px;
+}
