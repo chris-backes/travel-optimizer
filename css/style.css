@@ -197,15 +197,14 @@ width: 100%;
 =======
 >>>>>>> kareem-css
 .spaceBt {
-  margin-top:30px;  
+  text-align: center;
 }
 
 #buttonPos {
-text-align: center;
+align-items: center;
 }
 
 #next_button{
-margin-right: 205px;
 margin-bottom: 20px
 };
 <<<<<<< HEAD
@@ -249,4 +248,18 @@ h5 {
   display: flex;
   justify-content: center;
   align-items: stretch;}
+<<<<<<< HEAD
+>>>>>>> kareem-css
+=======
+
+
+.page-footer .container {
+  padding-bottom: 20px;
+  font-weight: normal;
+  font-size: 20px;
+}
+
+#logo-container .material-icons {
+  font-size:50px;
+}
 >>>>>>> kareem-css
