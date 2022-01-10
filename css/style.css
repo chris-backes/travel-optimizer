@@ -183,15 +183,15 @@ width: 100%;
 
 
 .spaceBt {
-  margin-top:30px;  
+  text-align: center;
+  margin-top:30px;
 }
 
 #buttonPos {
-text-align: center;
+align-items: center;
 }
 
 #next_button{
-margin-right: 205px;
 margin-bottom: 20px
 };
 
@@ -234,7 +234,6 @@ h5 {
   align-items: stretch;}
 
 
-
 .page-footer .container {
   padding-bottom: 20px;
   font-weight: normal;
@@ -242,9 +241,5 @@ h5 {
 }
 
 #logo-container .material-icons {
-
-  font-size:55px;
+  font-size:50px;
 }
-
-
-
