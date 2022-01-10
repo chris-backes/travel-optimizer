@@ -257,8 +257,18 @@ h5 {
 
 .map-title {
   text-align:center;
+  padding-bottom: 40px;
 }
 
+
 .map-space {
-  margin-top: 100px;
+  margin-top: 60px;
+}
+
+.card-header {
+  color: #ff9800;
+}
+
+.subtitle {
+  color: #ff9800
 }
