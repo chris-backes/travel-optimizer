@@ -232,3 +232,9 @@ h5 {
   display: flex;
   justify-content: center;
   align-items: stretch;}
+
+
+.page-footer .container {
+  padding-bottom: 20px;
+  font-weight: normal;
+}
