@@ -35,10 +35,22 @@ var formSubmitHandler = function (event) {
     //cityContainerEl.textContent = "";
     cityInputEl.value = "";
 
-  } else {
-    alert("Please enter a City name");
+  } else {  
+    $(document).ready(function(){
+      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+      $('.modal-trigger').modal();
+    });    
   }
 };
+
+
+$(document).ready(function(){
+  // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+  $('.modal-trigger').leanModal();
+});
+
+
+
 
 var buttonClickHandler = function (event) {
   // get the city attribute from the clicked element
@@ -104,7 +116,6 @@ var displayCity = function (citydata, searchTerm) {
   for (i = 0; i < citydata.features.length; i++) {
     var historic_places = citydata.features[i].properties.name;
     var cityLst = document.createElement("li");
-
     cityLst.textContent = historic_places;
     cityLstEl.appendChild(cityLst);
   }
@@ -227,7 +238,7 @@ function createListItem(item) {
   let a = document.createElement("a");
   a.className = "list-group-item list-group-item-action";
   a.setAttribute("data-id", item.xid);
-  a.innerHTML = `<h5 class="list-group-item-heading">${item.name}</h5>
+  a.innerHTML = `<h5 class="list-group-item-heading listStyle">${item.name}</h5>
             <p class="list-group-item-text">${item.kinds}</p>`;
 
   a.addEventListener("click", function() {
@@ -291,8 +302,13 @@ $(document).ready(grabStorage);
 // });
 
 
+//Lando API Key = AIzaSyCoPP5u7-67QyAUK9Tn1vBie4c_xQBIg3M
+
 
  
 
 
 
+$(document).ready(function(){
+  $('.modal').modal();
+})
