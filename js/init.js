@@ -32,7 +32,7 @@ var formSubmitHandler = function (event) {
 
   // get value from input element
   var cityName = cityInputEl.value.trim();
-
+console.log(!isNaN(parseInt(cityName)));
   if (cityName) {
     getCityData(cityName);
     // var cityBtn = document.createElement("button");
@@ -47,10 +47,12 @@ var formSubmitHandler = function (event) {
     cityInputEl.value = "";
 
   } else {  
-    $(document).ready(function(){
+    // $(document).ready(function(){
       // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-      $('.modal-trigger').modal();
-    });    
+      //console.log($('.modal'));
+      //console.info('show modal');
+      $('.modal').modal('open');
+    // });    
   }
 };
 
@@ -98,6 +100,7 @@ var getCity = function (city) {
       response1.json().then(function (data1) {
         lat = data1.lat;
         lon = data1.lon;
+        console.log(data1);
         firstLoad();
 
         // var apiUrl2 =
@@ -139,7 +142,7 @@ var displayCity = function (citydata, searchTerm) {
   var cityLstEl = document.createElement("ul");
 
   // console.log(citydata.features);
-  // citydata.features.sort((a, b) => parseInt(b.properties.rate) - parseInt(a.properties.rate));
+  // citydata.features.sort((a, b) => parseInt(a.properties.rate) > parseInt(b.properties.rate) ? 1 : -1);
   // console.log(citydata.features);
 
   for (i = 0; i < citydata.features.length; i++) {
@@ -243,13 +246,13 @@ function apiGet(method, query) {
 function firstLoad() {
   apiGet(
     "radius",
-    `radius=1000&limit=${pageLength}&offset=${offset}&lon=${lon}&lat=${lat}&rate=2&format=count`
+    `radius=1000&limit=${pageLength}&offset=${offset}&lon=${lon}&lat=${lat}&rate=1&format=count`
   ).then(function(data) {
     count = data.count;
     offset = 0;
     document.getElementById(
       "city-container"
-    ).innerHTML += `<p>${count} objects with description in a 1km radius</p>`;
+    ).innerHTML = `<p>${count} objects with description in a 1km radius</p>`;
     loadList();
   });
 }
@@ -257,10 +260,13 @@ function firstLoad() {
 function loadList() {
   apiGet(
     "radius",
-    `radius=1000&limit=${pageLength}&offset=${offset}&lon=${lon}&lat=${lat}&rate=2&format=json`
+    `radius=1000&limit=${pageLength}&offset=${offset}&lon=${lon}&lat=${lat}&rate=1&format=json`
   ).then(function(data) {
     let list = document.getElementById("list");
     list.innerHTML = "";
+    //console.log(data);
+    //data.sort((a, b) => parseInt(a.rate) > parseInt(b.rate) ? -1 : 1);
+    //console.log(data);
     data.forEach(item => list.appendChild(createListItem(item)));
     let nextBtn = document.getElementById("next_button");
     if (count < offset + pageLength) {
