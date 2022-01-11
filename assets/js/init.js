@@ -53,10 +53,10 @@ var formSubmitHandler = function (event) {
     //cityContainerEl.textContent = "";
     cityInputEl.value = "";
   } else {
-    $(document).ready(function () {
+    //$(document).ready(function () {
       // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-      $(".modal-trigger").modal();
-    });
+      $(".modal-trigger").modal('open');
+    //});
   }
 };
 
@@ -221,7 +221,7 @@ function firstLoad(lat, lon) {
     offset = 0;
     document.getElementById(
       "city-container"
-    ).innerHTML += `<p>${count} objects with description in a 1km radius</p>`;
+    ).innerHTML = `<p>${count} objects with description in a 1km radius</p>`;
     loadList(lat, lon);
   });
 }
