@@ -82,6 +82,7 @@ var getCity = function (city) {
       response1.json().then(function (data1) {
         let lat = data1.lat;
         let lon = data1.lon;
+        map.jumpTo({ center: [lon, lat] });
         firstLoad(lat, lon);
       });
     } else {
@@ -249,7 +250,10 @@ function onShowPOI(data) {
 
   poi.innerHTML += `<p><a target="_blank" href="${data.otm}">Show more at OpenTripMap</a></p>`;
   //sets map to Point of Interest
-  map.jumpTo({ center: [data.point.lon, data.point.lat] });
+  map.jumpTo({
+    center: [data.point.lon, data.point.lat],
+    zoom: 17
+   });
 }
 
 document.getElementById("next_button").addEventListener("click", function () {
