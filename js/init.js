@@ -7,7 +7,6 @@ var citySearchTerm = document.querySelector("#city-search-term");
 
 const apiKey = "5ae2e3f221c38a28845f05b60883896f56d632d8f8d31b794af77353";
 
-
 const pageLength = 5; // number of objects per page
 
 let lon; // place longitude
@@ -15,16 +14,6 @@ let lat; // place latitude
 
 let offset = 0; // offset from first object in the list
 let count; // total objects count
-
-// var getCityHistory = JSON.parse(localStorage.getItem("cityArr")) || [];
-// //console.log(typeof getCityHistory);
-// for (i = 0; i < getCityHistory.length; i++) {
-//   var cityBtn = document.createElement("button");
-//   cityBtn.innerHTML = getCityHistory[i];
-//   cityBtn.setAttribute("data-city", getCityHistory[i]);
-//   cityBtn.classList = "btn";
-//   cityButtonsEl.appendChild(cityBtn);
-// }
 
 var formSubmitHandler = function (event) {
   // prevent page from refreshing
@@ -87,24 +76,6 @@ var getCity = function (city) {
         lat = data1.lat;
         lon = data1.lon;
         firstLoad();
-
-        // var apiUrl2 =
-        //   "https://api.opentripmap.com/0.1/en/places/radius?radius=1600&lon=" +
-        //   lon +
-        //   "&lat=" +
-        //   lat +
-        //   "&kinds=historic&apikey=5ae2e3f221c38a28845f05b60883896f56d632d8f8d31b794af77353";
-
-        // fetch(apiUrl2).then(function (response2) {
-        //   // request was successful
-        //   if (response2.ok) {
-        //     response2.json().then(function (data2) {
-        //       displayCity(data2, city);
-        //     });
-        //   } else {
-        //     alert("Error: " + response2.statusText);
-        //   }
-        // });
       });
     } else {
       alert("Error: " + response1.statusText);
@@ -140,17 +111,7 @@ var displayCity = function (citydata, searchTerm) {
 
   cityContainer.appendChild(cityLstEl);
 };
-// var $el1;
-// var $el2;
 
-// setInterval(function() {
-//  		$el1 = $('.bg-container.active');
-//     $el2 = $('.bg-container:not(.active');
-//     $el1.removeClass('active');
-//     $el2.addClass('active');
-//   }, 2000);
-
-// add event listeners to form and button container
 
 // Local Storage - Chris Backes
 function localStoring(city) {
