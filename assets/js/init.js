@@ -66,7 +66,7 @@ var formSubmitHandler = function (event) {
   } else {
     //$(document).ready(function () {
       // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-      $(".modal-trigger").modal('open');
+      $("#modal-trigger").modal('open');
     //});
   }
 };
@@ -111,7 +111,6 @@ var getCity = function (city) {
   //var lat, lon;
   fetch(apiUrl1).then(function (response1) {
     // request was successful
-    console.log(response1);
     if (response1.ok) {
       response1.json().then(function (data1) {
         let lat = data1.lat;
@@ -119,7 +118,7 @@ var getCity = function (city) {
         firstLoad(lat, lon);
       });
     } else {
-      alert("Error: " + response1.statusText);
+      $("#modal-error").modal('open');
     }
   });
 };
@@ -300,5 +299,5 @@ cityButtonsEl.addEventListener("click", buttonClickHandler);
 $(document).ready(grabStorage);
 
 $(document).ready(function () {
-  $(".modal").modal();
+  $("#modal").modal();
 });
