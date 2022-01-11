@@ -24,15 +24,21 @@ https://maryjezek.github.io/travel-optimizer/
 
 ![Webpage Screenshot](./assets/images/screenshot.png)
 
+## Gif
+
+<p align="center">
+<img alt="gif of webpage" src="./assets/images/website-gif.gif" />
+</p>
+
 ## User Story
 
 ```
 AS A traveler
-I Want to see query locations I want to visit and be able to locate them on a map
+I WANT to see query locations I want to visit and be able to locate them on a map
 SO THAT I can plan a trip to that location
 ```
 
-## Larger ambitions which were not acocmplished (yet)
+## Larger ambitions which were not accomplished (yet)
 
 Give the time and the coding acutiy, we would have liked to query a map with muliptle points of interest and plot out an itenary. We have accomplished the steps towards that, but it is a bit ambitious to say the least.
 
@@ -48,7 +54,7 @@ Materialize is used for syling. It has a css library and JS library to perform v
 
 ### Mapbox
 
-Mapbox is an API and accompaniying JS and CSS libraries, used for the map display.
+Mapbox is an API and accompanying JS and CSS libraries, used for the map display.
 
 ### Open Tri Map
 
@@ -68,4 +74,4 @@ Local Sotrage is again accessed any time a search is performed, the application 
 
 ### Fetch Requests
 
-Multiple API requests are made in the code in order to display the content. There is first a request to the city to grab its latitude and longitude . The lat and lon initiate another PAI request ofr attractions in the area. A third API request is initiated to displayed information when an attraction is clicked. There is a separate update of the Map at the bottom, utilizes a function declared in the mapbox library.
+Multiple API requests are made in the code in order to display the content. There is first a request to the city to grab its latitude and longitude . The lat and lon initiate another API request for attractions in the area. A third API request is initiated to displayed information when an attraction is clicked. There is a separate update of the Map at the bottom, utilizes a function declared in the mapbox library.
