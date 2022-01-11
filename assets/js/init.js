@@ -32,24 +32,6 @@ const pageLength = 5; // number of objects per page
 let offset = 0; // offset from first object in the list
 let count; // total objects count
 
-mapboxgl.accessToken =
-  "pk.eyJ1Ijoib2xvcGV6OTIwODQiLCJhIjoiY2t5NnI2MDlqMG42ZTJvcWkybGtobW92ZyJ9.07gsbcPupXhcC_7Wf4_BGg";
-let map = new mapboxgl.Map({
-  container: "map",
-  style: "mapbox://styles/olopez92084/cky6s06631d4p15o1kb7ut2qq", //style URL
-  center: [-73.98, 40.76], // starting position
-  zoom: 13, // starting zoom
-});
-map.addControl(new mapboxgl.NavigationControl());
-// Initialize the GeolocateControl.
-const geolocate = new mapboxgl.GeolocateControl({
-  positionOptions: {
-    enableHighAccuracy: true,
-  },
-  trackUserLocation: true,
-});
-// Add the control to the map.
-map.addControl(geolocate);
 
 var formSubmitHandler = function (event) {
   // prevent page from refreshing
