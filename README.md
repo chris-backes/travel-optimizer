@@ -66,9 +66,6 @@ Local Storage is first accessed when the application accesses storage to be disp
 
 Local Sotrage is again accessed any time a search is performed, the application accesses local storage and adds the item to the local storage.
 
+### Fetch Requests
 
-Update - Style README text in Word, then copy over.
-
-Update - List API's used in Project
-
-Update with - Add Screenshot of completed project 
+Multiple API requests are made in the code in order to display the content. There is first a request to the city to grab its latitude and longitude . The lat and lon initiate another PAI request ofr attractions in the area. A third API request is initiated to displayed information when an attraction is clicked. There is a separate update of the Map at the bottom, utilizes a function declared in the mapbox library.

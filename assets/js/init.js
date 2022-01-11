@@ -5,12 +5,12 @@ var cityContainerEl = document.querySelector("#city-container");
 var citySearchTerm = document.querySelector("#city-search-term");
 
 const apiKey = "5ae2e3f221c38a28845f05b60883896f56d632d8f8d31b794af77353";
-
 const pageLength = 5; // number of objects per page
 
 let offset = 0; // offset from first object in the list
 let count; // total objects count
 
+// Code provided from mapbox documentation
 mapboxgl.accessToken =
   "pk.eyJ1Ijoib2xvcGV6OTIwODQiLCJhIjoiY2t5NnI2MDlqMG42ZTJvcWkybGtobW92ZyJ9.07gsbcPupXhcC_7Wf4_BGg";
 let map = new mapboxgl.Map({
@@ -30,6 +30,8 @@ const geolocate = new mapboxgl.GeolocateControl({
 // Add the control to the map.
 map.addControl(geolocate);
 
+
+//initiates the series of processes which run once the search is run on the webpage. If a text is entered in the input field, a search is performed
 var formSubmitHandler = function (event) {
   // prevent page from refreshing
   event.preventDefault();
@@ -44,17 +46,10 @@ var formSubmitHandler = function (event) {
     cityInputEl.value = "";
   } else {
     //$(document).ready(function () {
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $("#modal-trigger").modal("open");
-    //});
   }
 };
 
-/* 
-$(document).ready(function(){
-  // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-  $('.modal-trigger').leanModal();
-}); */
 
 var buttonClickHandler = function (event) {
   // get the city attribute from the clicked element
@@ -62,9 +57,6 @@ var buttonClickHandler = function (event) {
 
   if (city) {
     getCity(city);
-
-    // clear old content
-    //cityContainerEl.textContent = "";
   }
 };
 
@@ -84,7 +76,6 @@ var getCity = function (city) {
     "&apikey=5ae2e3f221c38a28845f05b60883896f56d632d8f8d31b794af77353";
 
   // make a get request to url
-  //var lat, lon;
   fetch(apiUrl1).then(function (response1) {
     // request was successful
     if (response1.ok) {
@@ -112,10 +103,6 @@ var displayCity = function (citydata, searchTerm) {
 
   // create a link for each historical site
   var cityLstEl = document.createElement("ul");
-
-  // console.log(citydata.features);
-  // citydata.features.sort((a, b) => parseInt(b.properties.rate) - parseInt(a.properties.rate));
-  // console.log(citydata.features);
 
   for (i = 0; i < citydata.features.length; i++) {
     var historic_places = citydata.features[i].properties.name;
