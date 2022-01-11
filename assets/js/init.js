@@ -38,6 +38,10 @@ var formSubmitHandler = function (event) {
 
   // get value from input element
   var cityName = cityInputEl.value.trim();
+  if (/[0-9]/.test(cityName)) {
+    $("#modal-error").modal("open");
+    return;
+  }
 
   if (cityName) {
     getCityData(cityName);
