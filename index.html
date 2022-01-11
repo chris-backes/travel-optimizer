@@ -8,7 +8,7 @@
     />
     <title>Travel Planner - Materialize</title>
     <!-- Mapbox -Lando -->
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet'/>
 
     <!-- CSS  -->
@@ -46,9 +46,9 @@ media="screen,projection"
       </div>
     </nav>
     <div class="banner" id="cf">
-      <img class="top responsive-img" src="./assets/images/Screen Shot 2022-01-05 at 9.50.37 AM.png Shot 2022-01-05 at 9.50.37 AM.png" />
-      <img class="bottom responsive-img" src="./assets/images/Screen Shot 2022-01-05 at 10.02.55 AM.png Shot 2022-01-05 at 10.02.55 AM.png" />
-      <img class="bottom2 responsive-img" src="./assets/images/Screen Shot 2022-01-05 at 9.58.47 AM.png Shot 2022-01-05 at 9.58.47 AM.png"/>
+      <img class="top responsive-img" src="./assets/images/Screen Shot 2022-01-05 at 9.50.37 AM.png" />
+      <img class="bottom responsive-img" src="./assets/images/Screen Shot 2022-01-05 at 10.02.55 AM.png" />
+      <img class="bottom2 responsive-img" src="./assets/images/Screen Shot 2022-01-05 at 9.58.47 AM.png"/>
     </div>
 
       <div class="container" id="contain">
@@ -140,7 +140,7 @@ media="screen,projection"
               <div class="map row">
               <div id='map' style='width: 1200px; height: 600px;' class="col s12 m6 12">
               
-<script>  mapboxgl.accessToken = 'pk.eyJ1Ijoib2xvcGV6OTIwODQiLCJhIjoiY2t5NnI2MDlqMG42ZTJvcWkybGtobW92ZyJ9.07gsbcPupXhcC_7Wf4_BGg';
+<!-- <script>  mapboxgl.accessToken = 'pk.eyJ1Ijoib2xvcGV6OTIwODQiLCJhIjoiY2t5NnI2MDlqMG42ZTJvcWkybGtobW92ZyJ9.07gsbcPupXhcC_7Wf4_BGg';
 const map = new mapboxgl.Map({
 container: 'map',
 style: 'mapbox://styles/olopez92084/cky6s06631d4p15o1kb7ut2qq', //style URL
@@ -162,7 +162,7 @@ map.addControl(geolocate);
 geolocate.on('trackuserlocationstart', () => {
 console.log('A trackuserlocationstart event has occurred.');
 });
-</script>
+</script> -->
 </div>
 </div>
 </div>
@@ -189,6 +189,7 @@ console.log('A trackuserlocationstart event has occurred.');
     </footer>
 
     <!--  Scripts-->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -196,7 +197,7 @@ console.log('A trackuserlocationstart event has occurred.');
     ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-    <script src="/assets/js/init.js"></script>
+    <script src="./assets/js/init.js"></script>
     
   </body>
 </html>
