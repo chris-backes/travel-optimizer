@@ -7,6 +7,26 @@ var citySearchTerm = document.querySelector("#city-search-term");
 
 const apiKey = "5ae2e3f221c38a28845f05b60883896f56d632d8f8d31b794af77353";
 
+mapboxgl.accessToken = 'pk.eyJ1Ijoib2xvcGV6OTIwODQiLCJhIjoiY2t5NnI2MDlqMG42ZTJvcWkybGtobW92ZyJ9.07gsbcPupXhcC_7Wf4_BGg';
+const map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/olopez92084/cky6s06631d4p15o1kb7ut2qq', //style URL
+center: [-73.98, 40.76], // starting position
+zoom: 13 // starting zoom
+});
+
+map.addControl(new mapboxgl.NavigationControl());
+// Initialize the GeolocateControl.
+const geolocate = new mapboxgl.GeolocateControl({
+positionOptions: {
+enableHighAccuracy: true
+},
+trackUserLocation: true
+});
+// Add the control to the map.
+map.addControl(geolocate);
+// Set an event listener that fires
+// when a trackuserlocationstart event occurs.
 
 const pageLength = 5; // number of objects per page
 
