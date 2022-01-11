@@ -11,7 +11,7 @@ const map = new mapboxgl.Map({
 container: 'map',
 style: 'mapbox://styles/olopez92084/cky6s06631d4p15o1kb7ut2qq', //style URL
 center: [-73.98, 40.76], // starting position
-zoom: 13 // starting zoom
+zoom: 16 // starting zoom
 });
 
 map.addControl(new mapboxgl.NavigationControl());
