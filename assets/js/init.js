@@ -222,7 +222,7 @@ function loadList(lat, lon) {
   ).then(function (data) {
     let list = document.getElementById("list");
     list.innerHTML = "";
-    data.forEach((item) => list.appendChild(createListItem(item)));
+    data.forEach(item => list.appendChild(createListItem(item)));
     let nextBtn = document.getElementById("next_button");
     if (count < offset + pageLength) {
       nextBtn.style.visibility = "hidden";
