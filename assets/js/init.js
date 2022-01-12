@@ -210,7 +210,7 @@ function firstLoad(lat, lon) {
     offset = 0;
     document.getElementById(
       "city-container"
-    ).innerHTML = `<p>${count} objects with description in a 1km radius</p>`;
+    ).innerHTML = `<p>${count} objects with description in a 1 mile radius</p>`;
     loadList(lat, lon);
   });
 }
