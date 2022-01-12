@@ -68,3 +68,6 @@ Local Sotrage is again accessed any time a search is performed, the application 
 ### Fetch Requests
 
 Multiple API requests are made in the code in order to display the content. There is first a request to the city to grab its latitude and longitude . The lat and lon initiate another API request for attractions in the area. A third API request is initiated to displayed information when an attraction is clicked. There is a separate update of the Map at the bottom, utilizes a function declared in the mapbox library.
+
+## Citations:
+Poritons of this code were provided by the API's we utilized in our project. Portions may have been modified. Instances of borrowing code from external sources have been marked as such in the JavaScript.
