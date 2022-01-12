@@ -30,7 +30,6 @@ const geolocate = new mapboxgl.GeolocateControl({
 // Add the control to the map.
 map.addControl(geolocate);
 
-
 //initiates the series of processes which run once the search is run on the webpage. If a text is entered in the input field, a search is performed
 var formSubmitHandler = function (event) {
   // prevent page from refreshing
@@ -50,10 +49,9 @@ var formSubmitHandler = function (event) {
     cityInputEl.value = "";
   } else {
     //$(document).ready(function () {
-    $("#modal-trigger").modal("open");
+    $("#modal").modal("open");
   }
 };
-
 
 var buttonClickHandler = function (event) {
   // get the city attribute from the clicked element
@@ -90,7 +88,7 @@ var getCity = function (city) {
         firstLoad(lat, lon);
       });
     } else {
-      $("#modal-error").modal("open");
+      $("#modal").modal("open");
     }
   });
 };
@@ -256,8 +254,8 @@ function onShowPOI(data) {
   //sets map to Point of Interest
   map.jumpTo({
     center: [data.point.lon, data.point.lat],
-    zoom: 17
-   });
+    zoom: 17,
+  });
 }
 
 document.getElementById("next_button").addEventListener("click", function () {
@@ -269,6 +267,6 @@ cityFormEl.addEventListener("submit", formSubmitHandler);
 cityButtonsEl.addEventListener("click", buttonClickHandler);
 $(document).ready(grabStorage);
 
-$(document).ready(function () {
-  $("#modal").modal();
-});
+
+$("#modal").modal();
+$("#modal-error").modal();
