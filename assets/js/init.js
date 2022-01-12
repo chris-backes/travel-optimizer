@@ -32,7 +32,7 @@ map.addControl(geolocate);
 // Set marker options.
 const marker = new mapboxgl.Marker({
   color: "red",
-  draggable: true
+  draggable: false
 }).setLngLat([-73.98, 40.76])
   .addTo(map);
 
@@ -264,7 +264,7 @@ function onShowPOI(data) {
     : "No description";
 
   poi.innerHTML += `<p><a target="_blank" href="${data.otm}">Show more at OpenTripMap</a></p>`;
-  //sets map to Point of Interest
+  //sets map to Point of Interest and plants a marker
   map.jumpTo({
     center: [data.point.lon, data.point.lat],
     zoom: 17,
