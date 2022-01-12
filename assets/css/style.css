@@ -210,8 +210,14 @@ h5 {
   border-radius: 6px;
   overflow: auto;
   text-align: center;
-  cursor:pointer;
+}
 
+.search-list {
+  cursor: pointer;
+}
+
+.search-list:hover {
+  font-weight: bold;
 }
 
 #search4 {

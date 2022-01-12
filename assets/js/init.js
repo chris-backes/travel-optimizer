@@ -6,7 +6,6 @@ var citySearchTerm = document.querySelector("#city-search-term");
 
 const apiKey = "5ae2e3f221c38a28845f05b60883896f56d632d8f8d31b794af77353";
 const pageLength = 5; // number of objects per page
-
 let offset = 0; // offset from first object in the list
 let count; // total objects count
 
@@ -29,6 +28,13 @@ const geolocate = new mapboxgl.GeolocateControl({
 });
 // Add the control to the map.
 map.addControl(geolocate);
+
+// Set marker options.
+const marker = new mapboxgl.Marker({
+  color: "red",
+  draggable: true
+}).setLngLat([-73.98, 40.76])
+  .addTo(map);
 
 //initiates the series of processes which run once the search is run on the webpage. If a text is entered in the input field, a search is performed
 var formSubmitHandler = function (event) {
@@ -84,8 +90,16 @@ var getCity = function (city) {
       response1.json().then(function (data1) {
         let lat = data1.lat;
         let lon = data1.lon;
+        //inserts city name into the html page. some names in the api request are not capitalized
+        if (data1.name.charAt(0) === data1.name.charAt(0).toLowerCase()) {
+          $("#city-search-term").text(data1.name.charAt(0).toUpperCase() + data1.name.slice(1))
+        } else {
+          $("#city-search-term").text(data1.name)
+        }
         map.jumpTo({ center: [lon, lat] });
+        marker.setLngLat([lon, lat])
         firstLoad(lat, lon);
+
       });
     } else {
       $("#modal").modal("open");
@@ -106,6 +120,7 @@ var displayCity = function (citydata, searchTerm) {
 
   // create a link for each historical site
   var cityLstEl = document.createElement("ul");
+  cityContainer.appendChild(cityLstEl);
 
   for (i = 0; i < citydata.features.length; i++) {
     var historic_places = citydata.features[i].properties.name;
@@ -114,7 +129,6 @@ var displayCity = function (citydata, searchTerm) {
     cityLstEl.appendChild(cityLst);
   }
 
-  cityContainer.appendChild(cityLstEl);
 };
 
 // Local Storage - Chris Backes
@@ -153,7 +167,6 @@ function localStoring(city) {
 
 // Chris Backes -- grabs sotrage and places it in the webpage
 function grabStorage() {
-  console.log("hello");
   //pulls info from local storage. that info is then displayed below the search bar
   let searchHistory = JSON.parse(localStorage.getItem("search-history"));
   if (searchHistory) {
@@ -183,7 +196,7 @@ function apiGet(method, query) {
       .then((response) => response.json())
       .then((data) => resolve(data))
       .catch(function (err) {
-        console.log("Fetch Error :-S", err);
+        $("#modal-error").modal("open");
       });
   });
 }
@@ -220,12 +233,12 @@ function loadList(lat, lon) {
   });
 }
 
+//borrowed from API website added class to modify cursor and create and on hover element. we also removed the p element which was lacking in any aesthetic quality
 function createListItem(item) {
   let a = document.createElement("a");
   a.className = "list-group-item list-group-item-action";
   a.setAttribute("data-id", item.xid);
-  a.innerHTML = `<h5 class="list-group-item-heading listStyle">${item.name}</h5>
-            <p class="list-group-item-text">${item.kinds}</p>`;
+  a.innerHTML = `<h5 class="list-group-item-heading listStyle search-list">${item.name}</h5>`;
 
   a.addEventListener("click", function () {
     document.querySelectorAll("#list a").forEach(function (item) {
@@ -256,6 +269,7 @@ function onShowPOI(data) {
     center: [data.point.lon, data.point.lat],
     zoom: 17,
   });
+  marker.setLngLat([data.point.lon, data.point.lat])
 }
 
 document.getElementById("next_button").addEventListener("click", function () {
@@ -266,7 +280,5 @@ document.getElementById("next_button").addEventListener("click", function () {
 cityFormEl.addEventListener("submit", formSubmitHandler);
 cityButtonsEl.addEventListener("click", buttonClickHandler);
 $(document).ready(grabStorage);
-
-
 $("#modal").modal();
 $("#modal-error").modal();
