@@ -9,6 +9,9 @@ const pageLength = 5; // number of objects per page
 let offset = 0; // offset from first object in the list
 let count; // total objects count
 
+let latCity;
+let lonCity;
+
 // Code provided from mapbox documentation
 mapboxgl.accessToken =
   "pk.eyJ1Ijoib2xvcGV6OTIwODQiLCJhIjoiY2t5NnI2MDlqMG42ZTJvcWkybGtobW92ZyJ9.07gsbcPupXhcC_7Wf4_BGg";
@@ -88,17 +91,17 @@ var getCity = function (city) {
     // request was successful
     if (response1.ok) {
       response1.json().then(function (data1) {
-        let lat = data1.lat;
-        let lon = data1.lon;
+        latCity = data1.lat;
+        lonCity = data1.lon;
         //inserts city name into the html page. some names in the api request are not capitalized
         if (data1.name.charAt(0) === data1.name.charAt(0).toLowerCase()) {
           $("#city-search-term").text(data1.name.charAt(0).toUpperCase() + data1.name.slice(1))
         } else {
           $("#city-search-term").text(data1.name)
         }
-        map.jumpTo({ center: [lon, lat] });
-        marker.setLngLat([lon, lat])
-        firstLoad(lat, lon);
+        map.jumpTo({ center: [lonCity, latCity] });
+        marker.setLngLat([lonCity, latCity])
+        firstLoad();
 
       });
     } else {
@@ -201,24 +204,24 @@ function apiGet(method, query) {
   });
 }
 
-function firstLoad(lat, lon) {
+function firstLoad() {
   apiGet(
     "radius",
-    `radius=1000&limit=${pageLength}&offset=${offset}&lon=${lon}&lat=${lat}&rate=2&format=count`
+    `radius=1000&limit=${pageLength}&offset=${offset}&lon=${lonCity}&lat=${latCity}&rate=2&format=count`
   ).then(function (data) {
     count = data.count;
     offset = 0;
     document.getElementById(
       "city-container"
-    ).innerHTML = `<p>${count} objects with description in a 1km radius</p>`;
-    loadList(lat, lon);
+    ).innerHTML = `<p>${count} objects with description in a 1 mile radius</p>`;
+    loadList();
   });
 }
 
-function loadList(lat, lon) {
+function loadList() {
   apiGet(
     "radius",
-    `radius=1000&limit=${pageLength}&offset=${offset}&lon=${lon}&lat=${lat}&rate=2&format=json`
+    `radius=1000&limit=${pageLength}&offset=${offset}&lon=${lonCity}&lat=${latCity}&rate=2&format=json`
   ).then(function (data) {
     let list = document.getElementById("list");
     list.innerHTML = "";
@@ -231,6 +234,14 @@ function loadList(lat, lon) {
       nextBtn.innerText = `Next (${offset + pageLength} of ${count})`;
     }
   });
+  let backBtn = document.getElementById("back_button")
+    if (count < offset + pageLength) {
+        backBtn.style.visibility = "hidden";
+    } else {
+        backBtn.style.visibility = "visible";
+        backBtn.innerText = 'Back';
+    }
+
 }
 
 //borrowed from API website added class to modify cursor and create and on hover element. we also removed the p element which was lacking in any aesthetic quality
@@ -276,6 +287,10 @@ document.getElementById("next_button").addEventListener("click", function () {
   offset += pageLength;
   loadList();
 });
+document.getElementById("back_button").addEventListener("click", function () {
+  offset -= pageLength;
+  loadList();
+})
 
 cityFormEl.addEventListener("submit", formSubmitHandler);
 cityButtonsEl.addEventListener("click", buttonClickHandler);

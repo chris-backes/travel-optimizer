@@ -7,6 +7,7 @@
       content="width=device-width, initial-scale=1, maximum-scale=1.0"
     />
     <title>Travel Planner</title>
+    <link rel="icon" type="image/png" href="https://www.freeiconspng.com/uploads/suitcase-travel-flat-design-travel-icon-png-suitcase-png-suitcase-icon--22.png" />
     <!-- Mapbox -Lando -->
 
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet'/>
@@ -34,7 +35,7 @@
         >
         <ul class="right hide-on-med-and-down">
           <li><a href="#contain">Search</a></li>
-          <li><a href="#">About Us</a></li>
+          <li><a href="#footer">About Us</a></li>
         </ul>
 
         <ul id="nav-mobile" class="sidenav">
@@ -111,6 +112,7 @@
             </div>
             <ul id="list"></ul>
             <div id="buttonPos">
+              <button id="back_button" class="waves-effect waves-light btn">Back<i class="material-icons left">arrow_backward</i></button>
               <button id="next_button" class="waves-effect waves-light btn">Next<i class="material-icons right">arrow_forward</i></button>
             </div>
         </div>
@@ -126,9 +128,9 @@
         </div>
       </div>
 
-      <!-- Map -Lando-->
+      <!-- Mapbox -Lando-->
       <div class="map-space">
-        <h3 class="card-header text-uppercase map-title">Search Points of Interest Near Your Current Location</h3>
+        <h3 class="card-header text-uppercase map-title">Search Points of Interest Nearby</h3>
         <div class="map row">
           <div id='map' style='width: 1200px; height: 600px;' class="col s12 m6 12">
           </div>
@@ -139,7 +141,7 @@
     </div>
     
     <footer class="page-footer orange">
-      <div class="container"><i class="material-icons">copyright</i> Made by the Apptimizers</div>
+      <div class="container" id="footer"><i class="material-icons">copyright</i> Made by the Apptimizers</div>
     </footer>
 
     <!--  Scripts-->

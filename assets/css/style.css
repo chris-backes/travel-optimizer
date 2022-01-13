@@ -179,7 +179,9 @@ width: 100%;
 }; */
 
 
-#id p {background-color: white;}
+#id p {
+  background-color: white;
+}
 
 
 .spaceBt {
@@ -189,16 +191,15 @@ width: 100%;
 
 #buttonPos {
 align-items: center;
+margin-bottom: 10px
 }
 
-#next_button{
-margin-bottom: 20px
-};
-
+#back_button {
+  Width: 8em;
+}
 
 .styleLs  {
   background-color: aqua;
-
 }
 
 h5 {
