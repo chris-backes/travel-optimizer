@@ -234,6 +234,14 @@ function loadList() {
       nextBtn.innerText = `Next (${offset + pageLength} of ${count})`;
     }
   });
+  let backBtn = document.getElementById("back_button")
+    if (count < offset + pageLength) {
+        backBtn.style.visibility = "hidden";
+    } else {
+        backBtn.style.visibility = "visible";
+        backBtn.innerText = 'Back';
+    }
+
 }
 
 //borrowed from API website added class to modify cursor and create and on hover element. we also removed the p element which was lacking in any aesthetic quality
@@ -279,6 +287,10 @@ document.getElementById("next_button").addEventListener("click", function () {
   offset += pageLength;
   loadList();
 });
+document.getElementById("back_button").addEventListener("click", function () {
+  offset -= pageLength;
+  loadList();
+})
 
 cityFormEl.addEventListener("submit", formSubmitHandler);
 cityButtonsEl.addEventListener("click", buttonClickHandler);
