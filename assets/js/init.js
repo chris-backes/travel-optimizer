@@ -5,7 +5,7 @@ var cityContainerEl = document.querySelector("#city-container");
 var citySearchTerm = document.querySelector("#city-search-term");
 
 const apiKey = "5ae2e3f221c38a28845f05b60883896f56d632d8f8d31b794af77353";
-const pageLength = 5; // number of objects per page
+const pageLength = 10; // number of objects per page
 let offset = 0; // offset from first object in the list
 let count; // total objects count
 
@@ -35,8 +35,9 @@ map.addControl(geolocate);
 // Set marker options.
 const marker = new mapboxgl.Marker({
   color: "red",
-  draggable: false
-}).setLngLat([-73.98, 40.76])
+  draggable: false,
+})
+  .setLngLat([-73.98, 40.76])
   .addTo(map);
 
 //initiates the series of processes which run once the search is run on the webpage. If a text is entered in the input field, a search is performed
@@ -86,7 +87,7 @@ var getCity = function (city) {
     city +
     "&apikey=5ae2e3f221c38a28845f05b60883896f56d632d8f8d31b794af77353";
 
-  // make a get request to url
+  // make a get request to url to return Lat and Lon
   fetch(apiUrl1).then(function (response1) {
     // request was successful
     if (response1.ok) {
@@ -95,14 +96,15 @@ var getCity = function (city) {
         lonCity = data1.lon;
         //inserts city name into the html page. some names in the api request are not capitalized
         if (data1.name.charAt(0) === data1.name.charAt(0).toLowerCase()) {
-          $("#city-search-term").text(data1.name.charAt(0).toUpperCase() + data1.name.slice(1))
+          $("#city-search-term").text(
+            data1.name.charAt(0).toUpperCase() + data1.name.slice(1)
+          );
         } else {
-          $("#city-search-term").text(data1.name)
+          $("#city-search-term").text(data1.name);
         }
         map.jumpTo({ center: [lonCity, latCity] });
-        marker.setLngLat([lonCity, latCity])
+        marker.setLngLat([lonCity, latCity]);
         firstLoad();
-
       });
     } else {
       $("#modal").modal("open");
@@ -131,7 +133,6 @@ var displayCity = function (citydata, searchTerm) {
     cityLst.textContent = historic_places;
     cityLstEl.appendChild(cityLst);
   }
-
 };
 
 // Local Storage - Chris Backes
@@ -168,7 +169,7 @@ function localStoring(city) {
   localStorage.setItem("search-history", JSON.stringify(searchHistory));
 }
 
-// Chris Backes -- grabs sotrage and places it in the webpage
+// Chris Backes -- grabs storage and places it in the webpage
 function grabStorage() {
   //pulls info from local storage. that info is then displayed below the search bar
   let searchHistory = JSON.parse(localStorage.getItem("search-history"));
@@ -184,7 +185,7 @@ function grabStorage() {
     }
   }
 }
-
+//Code utilized from the API website example and modified- MB- this is the first call to the API
 function apiGet(method, query) {
   return new Promise(function (resolve, reject) {
     var otmAPI =
@@ -203,7 +204,7 @@ function apiGet(method, query) {
       });
   });
 }
-
+//this function returns the count of POIs from the API call
 function firstLoad() {
   apiGet(
     "radius",
@@ -218,6 +219,7 @@ function firstLoad() {
   });
 }
 
+//this API call will return List Data from the API with an offset and populate the text on the buttons
 function loadList() {
   apiGet(
     "radius",
@@ -230,10 +232,22 @@ function loadList() {
     if (count < offset + pageLength) {
       nextBtn.style.visibility = "hidden";
     } else {
-      nextBtn.style.visibility = "visible";
-      nextBtn.innerText = `Next (${offset + pageLength} of ${count})`;
+      if (offset > -1) {
+        nextBtn.style.visibility = "visible";
+        nextBtn.innerText = `Next (${offset + pageLength} of ${count})`;
+      } else {
+        nextBtn.style.visibility = "visible";
+        nextBtn.innerText = `Next (${"0"} of ${count})`;
+      }
     }
   });
+  let backBtn = document.getElementById("back_button");
+  if (count < offset + pageLength) {
+    backBtn.style.visibility = "hidden";
+  } else {
+    backBtn.style.visibility = "visible";
+    backBtn.innerText = "Back";
+  }
 }
 
 //borrowed from API website added class to modify cursor and create and on hover element. we also removed the p element which was lacking in any aesthetic quality
@@ -254,6 +268,7 @@ function createListItem(item) {
   return li;
 }
 
+//Obtain and sets inner HTML image and description from the wiki extract of the POI
 function onShowPOI(data) {
   let poi = document.getElementById("poi");
   poi.innerHTML = "";
@@ -272,11 +287,15 @@ function onShowPOI(data) {
     center: [data.point.lon, data.point.lat],
     zoom: 17,
   });
-  marker.setLngLat([data.point.lon, data.point.lat])
+  marker.setLngLat([data.point.lon, data.point.lat]);
 }
 
 document.getElementById("next_button").addEventListener("click", function () {
   offset += pageLength;
+  loadList();
+});
+document.getElementById("back_button").addEventListener("click", function () {
+  offset -= pageLength;
   loadList();
 });
 
