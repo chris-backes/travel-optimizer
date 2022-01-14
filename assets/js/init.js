@@ -5,7 +5,7 @@ var cityContainerEl = document.querySelector("#city-container");
 var citySearchTerm = document.querySelector("#city-search-term");
 
 const apiKey = "5ae2e3f221c38a28845f05b60883896f56d632d8f8d31b794af77353";
-const pageLength = 5; // number of objects per page
+const pageLength = 10; // number of objects per page
 let offset = 0; // offset from first object in the list
 let count; // total objects count
 
