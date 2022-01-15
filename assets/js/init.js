@@ -252,12 +252,12 @@ function loadList() {
 
 //borrowed from API website added class to modify cursor and create and on hover element. we also removed the p element which was lacking in any aesthetic quality
 function createListItem(item) {
-  let a = document.createElement("a");
-  a.className = "list-group-item list-group-item-action";
-  a.setAttribute("data-id", item.xid);
-  a.innerHTML = `<h5 class="list-group-item-heading listStyle search-list">${item.name}</h5>`;
+  let li = document.createElement("li");
+  li.className = "list-group-item list-group-item-action";
+  li.setAttribute("data-id", item.xid);
+  li.innerHTML = `<h5 class="list-group-item-heading listStyle search-list">${item.name}</h5>`;
 
-  a.addEventListener("click", function () {
+  li.addEventListener("click", function () {
     document.querySelectorAll("#list a").forEach(function (item) {
       item.classList.remove("active");
     });
@@ -265,7 +265,7 @@ function createListItem(item) {
     let xid = this.getAttribute("data-id");
     apiGet("xid/" + xid).then((data) => onShowPOI(data));
   });
-  return a;
+  return li;
 }
 
 //Obtain and sets inner HTML image and description from the wiki extract of the POI
