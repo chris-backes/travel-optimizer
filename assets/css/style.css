@@ -1,10 +1,3 @@
-/* Custom Stylesheet */
-/**
- * Use this file to override Materialize files so you can update
- * the core Materialize files in the future
- *
- * Made By MaterializeCSS.com
- */
 
  .icon-block {
   padding: 0 15px;
@@ -13,176 +6,75 @@
 	font-size: inherit;
 }
 
-/* .banner {
-background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/Users/kareemmagdy/Desktop/travel-optimizer/oct2015_d06_pyramids.jpeg");
-background-size: cover;
-background-position: 30%;
-height: 900px;
-position: relative;
-
-}
-
-.banner .tr {color: white;
-    display: inline-block;
-    position: absolute;
-    align-items: center;
-    font-size: 200px;
-    font-weight: lighter;
-    font-family: 'Parisienne', cursive;
-    right: 1214px;
-    bottom: 485px;
-  } */
-
-
-
-/* 
-#cf {
-  height: 100px;
-  width: 100px;
- }
- 
- .bg-container {
-   position: fixed;
-   top:0;
-   left:0;
-   height: 100%;
-   width: 100%;
-   transition: 2s;
-   opacity: 0;
- }
- 
- .bg-container.active {
-   opacity: 1;
- }
- 
- .bg-container-1 {
-  background-image: url(/Users/kareemmagdy/Desktop/travel-optimizer/The_Colosseum_Rome.jpeg);
-
- }
- 
- .bg-container-2 {
-   background-image: url(/Users/kareemmagdy/Desktop/travel-optimizer/oct2015_d06_pyramids.jpeg);
-
- } */
-
  body {
   margin: 0 auto;
   position: relative;
 }
 
-#cf {position: relative;
-  height: 1000px;
-  ;
+#cf {
+  position: relative;
 }
 
 #cf img {
-
-  position:absolute;
   left:0;
   -webkit-transition: opacity 1s ease-in-out;
   -moz-transition: opacity 1s ease-in-out;
   -o-transition: opacity 1s ease-in-out;
   transition: opacity 1s ease-in-out;
-  max-width: auto
+  max-width: auto;
 }
 
 @keyframes cf3FadeInOut {
   0% {
+    opacity:1;
+  }
+  45% {
   opacity:1;
-}
-45% {
-opacity:1;
-}
-55% {
-opacity:0;
-}
-100% {
-opacity:0;
-}
+  }
+  55% {
+  opacity:0;
+  }
+  100% {
+  opacity:0;
+  }
 } 
 
 #cf img.top {
-  
 animation-name: cf3FadeInOut;
 animation-timing-function: ease-in-out;
 animation-iteration-count: infinite;
 animation-duration: 6s;
 animation-direction: alternate;
 animation-delay: 8s;
-width: 100%;
-
 } 
 
 #cf img.bottom {
+  position:absolute;
   animation-name: cf3FadeInOut;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-duration: 6s;
   animation-direction: alternate;
   animation-delay: 4s;
-  width: 100%;
-  
-  }
+}
 
 #cf img.bottom2 {
+  position:absolute;
   animation-name: cf3FadeInOut;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-duration: 6s;
   animation-direction: alternate;
   animation-delay: 1s;
-  width: 100%;
 } 
 
 .airplane {
   text-align: center;
 }
 
-
- @media screen and (max-width: 1024px) {
-
-  #cf {position: relative;
-    height: 450px;
-    
-  }
-
-}; 
-
-
-
-/* @media screen and (max-width: 980px) {
-
-  #cf {position: relative;
-    height: 490px;
-    
-  }
-
-}; */
-
-/* @media screen and (max-width: 768px) {
-
-  #cf {
-    height: 300px;
-    
-  }
-
-}; */
-
-
-/* @media screen and (max-width: 658px) {
-
-  #cf {position: relative;
-    height: 20px;
-    
-  }
-
-}; */
-
-
 #id p {
   background-color: white;
 }
-
 
 .spaceBt {
   text-align: center;
@@ -228,12 +120,6 @@ h5 {
   text-align: center;
 }
 
-/* 
-#search2 {
-  justify-content: space-between;
-} */
-
-
 #search6 {
   display: flex;
   justify-content:space-between;
@@ -258,14 +144,14 @@ h5 {
 #map {
   align-items:center;
   display: flex;
-
+  width: 95vw; 
+  height: 60vh;
 }
 
 .map-title {
   text-align:center;
   padding-bottom: 40px;
 }
-
 
 .map-space {
   margin-top: 60px;
@@ -279,52 +165,32 @@ h5 {
   color: #ff9800
 }
 
-
 @media screen and (max-width: 425px) {
-  #search6  { 
-   float: none;
-   margin-right:0;
-   width:auto;
-   border:0;
-   border-bottom:2px solid #000;
-   display: block;   
- }
- #col10 {
-   height: 10px;
- }
+    #search6  { 
+    float: none;
+    margin-right:0;
+    width:auto;
+    border:0;
+    border-bottom:2px solid #000;
+    display: block;   
+  }
+  #col10 {
+    height: 10px;
+  }
 
- #cf {position: relative;
-  height: 190px;
- }
+  #logo-container .material-icons {
+    display: none;
 
- #logo-container .material-icons {
-   display: none;
+  }
 
- }
+  nav .sidenav-trigger i {
+    display: none;
+  }
 
- nav .sidenav-trigger i {
-  display: none;
- }
-
- nav .brand-logo {
-  font-size: 20px;
-  width: 100%;
-  align-items:center;
-  text-align: center;
-  /* display: inline; */
-
-}
-
-#map {
-  width: 1200px; 
-  height: 300px;
-  /* display: none; */
-}
-
-}
-
-#map 
-{
-  width: 1200px; 
-  height: 600px;
+  nav .brand-logo {
+    font-size: 20px;
+    width: 100%;
+    align-items:center;
+    text-align: center;
+  }
 }
